@@ -20,3 +20,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/maps', [App\Http\Controllers\MapsController::class, 'index'])->name('maps.index');
+
+
+Route::resource('jenisTanamen', App\Http\Controllers\JenisTanamanController::class);
+
+
+Route::resource('petanis', App\Http\Controllers\PetaniController::class);
+
+
+Route::resource('lahans', App\Http\Controllers\LahanController::class);
