@@ -36,4 +36,8 @@
 
         </div>
     </div>
+
+@push('page_scripts')
+    
+@endpush
 @endsection

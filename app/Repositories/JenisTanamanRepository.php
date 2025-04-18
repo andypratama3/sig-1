@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class JenisTanamanRepository
  * @package App\Repositories
- * @version April 13, 2025, 3:20 pm UTC
+ * @version April 18, 2025, 10:27 am UTC
 */
 
 class JenisTanamanRepository extends BaseRepository

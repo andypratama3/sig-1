@@ -6,8 +6,8 @@
 </li>
 
 <li class="nav-item">
-    <a href="{{ route('jenisTanamen.index') }}"
-       class="nav-link {{ Request::is('jenisTanamen*') ? 'active' : '' }}">
+    <a href="{{ route('jenis-tanaman.index') }}"
+       class="nav-link {{ Request::is('jenis-tanaman*') ? 'active' : '' }}">
         <p>Jenis Tanaman</p>
     </a>
 </li>

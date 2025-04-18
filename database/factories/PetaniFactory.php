@@ -23,8 +23,8 @@ class PetaniFactory extends Factory
     {
         return [
             'nama' => $this->faker->word,
-        'alamat' => $this->faker->text,
         'kontak' => $this->faker->word,
+        'alamat' => $this->faker->text,
         'deleted_at' => $this->faker->date('Y-m-d H:i:s'),
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s')

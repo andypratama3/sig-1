@@ -3,8 +3,8 @@
         <thead>
         <tr>
             <th>Nama</th>
-        <th>Alamat</th>
         <th>Kontak</th>
+        <th>Alamat</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
@@ -12,8 +12,8 @@
         @foreach($petanis as $petani)
             <tr>
                 <td>{{ $petani->nama }}</td>
-            <td>{{ $petani->alamat }}</td>
             <td>{{ $petani->kontak }}</td>
+            <td>{{ $petani->alamat }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['petanis.destroy', $petani->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateLahanRequest;
-use App\Http\Requests\UpdateLahanRequest;
-use App\Repositories\LahanRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
 use Response;
+use App\Models\Petani;
+use App\Models\JenisTanaman;
+use Illuminate\Http\Request;
+use App\Repositories\LahanRepository;
+use App\Http\Requests\CreateLahanRequest;
+use App\Http\Requests\UpdateLahanRequest;
+use App\Http\Controllers\AppBaseController;
 
 class LahanController extends AppBaseController
 {
@@ -42,7 +44,9 @@ class LahanController extends AppBaseController
      */
     public function create()
     {
-        return view('lahans.create');
+        $petanis = Petani::all()->pluck('nama', 'id');
+        $jenisTanaman = JenisTanaman::all()->pluck('nama','id');
+        return view('lahans.create', compact('petanis', 'jenisTanaman'));
     }
 
     /**
@@ -92,6 +96,9 @@ class LahanController extends AppBaseController
      */
     public function edit($id)
     {
+        $petanis = Petani::all()->pluck('nama', 'id');
+        $jenisTanaman = JenisTanaman::all()->pluck('nama','id');
+
         $lahan = $this->lahanRepository->find($id);
 
         if (empty($lahan)) {
@@ -100,7 +107,7 @@ class LahanController extends AppBaseController
             return redirect(route('lahans.index'));
         }
 
-        return view('lahans.edit')->with('lahan', $lahan);
+        return view('lahans.edit', compact('lahan', 'petanis', 'jenisTanaman'));
     }
 
     /**

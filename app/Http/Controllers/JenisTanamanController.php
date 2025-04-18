@@ -31,7 +31,7 @@ class JenisTanamanController extends AppBaseController
     {
         $jenisTanamen = $this->jenisTanamanRepository->all();
 
-        return view('jenis_tanamen.index')
+        return view('jenis_tanaman.index')
             ->with('jenisTanamen', $jenisTanamen);
     }
 
@@ -42,7 +42,7 @@ class JenisTanamanController extends AppBaseController
      */
     public function create()
     {
-        return view('jenis_tanamen.create');
+        return view('jenis_tanaman.create');
     }
 
     /**
@@ -60,7 +60,7 @@ class JenisTanamanController extends AppBaseController
 
         Flash::success('Jenis Tanaman saved successfully.');
 
-        return redirect(route('jenisTanamen.index'));
+        return redirect(route('jenis-tanaman.index'));
     }
 
     /**
@@ -77,10 +77,10 @@ class JenisTanamanController extends AppBaseController
         if (empty($jenisTanaman)) {
             Flash::error('Jenis Tanaman not found');
 
-            return redirect(route('jenisTanamen.index'));
+            return redirect(route('jenis-tanaman.index'));
         }
 
-        return view('jenis_tanamen.show')->with('jenisTanaman', $jenisTanaman);
+        return view('jenis_tanaman.show')->with('jenisTanaman', $jenisTanaman);
     }
 
     /**
@@ -97,10 +97,10 @@ class JenisTanamanController extends AppBaseController
         if (empty($jenisTanaman)) {
             Flash::error('Jenis Tanaman not found');
 
-            return redirect(route('jenisTanamen.index'));
+            return redirect(route('jenis-tanaman.index'));
         }
 
-        return view('jenis_tanamen.edit')->with('jenisTanaman', $jenisTanaman);
+        return view('jenis_tanaman.edit')->with('jenisTanaman', $jenisTanaman);
     }
 
     /**
@@ -118,14 +118,14 @@ class JenisTanamanController extends AppBaseController
         if (empty($jenisTanaman)) {
             Flash::error('Jenis Tanaman not found');
 
-            return redirect(route('jenisTanamen.index'));
+            return redirect(route('jenis-tanaman.index'));
         }
 
         $jenisTanaman = $this->jenisTanamanRepository->update($request->all(), $id);
 
         Flash::success('Jenis Tanaman updated successfully.');
 
-        return redirect(route('jenisTanamen.index'));
+        return redirect(route('jenis-tanaman.index'));
     }
 
     /**
@@ -144,13 +144,13 @@ class JenisTanamanController extends AppBaseController
         if (empty($jenisTanaman)) {
             Flash::error('Jenis Tanaman not found');
 
-            return redirect(route('jenisTanamen.index'));
+            return redirect(route('jenis-tanaman.index'));
         }
 
         $this->jenisTanamanRepository->delete($id);
 
         Flash::success('Jenis Tanaman deleted successfully.');
 
-        return redirect(route('jenisTanamen.index'));
+        return redirect(route('jenis-tanaman.index'));
     }
 }

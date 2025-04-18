@@ -22,7 +22,10 @@ class LahanFactory extends Factory
     public function definition()
     {
         return [
-            'desa' => $this->faker->word,
+            'provinsi_id' => $this->faker->word,
+        'kabupaten_id' => $this->faker->word,
+        'kecamatan_id' => $this->faker->word,
+        'desa_id' => $this->faker->word,
         'tanaman' => $this->faker->word,
         'tanggal_penanaman' => $this->faker->word,
         'tanggal_panen' => $this->faker->word,
@@ -32,9 +35,9 @@ class LahanFactory extends Factory
         'petani_id' => $this->faker->word,
         'jenis_tanaman_id' => $this->faker->word,
         'status' => $this->faker->word,
+        'deleted_at' => $this->faker->date('Y-m-d H:i:s'),
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s'),
-        'deleted_at' => $this->faker->date('Y-m-d H:i:s')
+        'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

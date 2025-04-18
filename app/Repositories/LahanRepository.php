@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class LahanRepository
  * @package App\Repositories
- * @version April 13, 2025, 9:56 pm UTC
+ * @version April 18, 2025, 10:28 am UTC
 */
 
 class LahanRepository extends BaseRepository
@@ -17,7 +17,10 @@ class LahanRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'desa',
+        'provinsi_id',
+        'kabupaten_id',
+        'kecamatan_id',
+        'desa_id',
         'tanaman',
         'tanggal_penanaman',
         'tanggal_panen',

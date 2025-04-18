@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class JenisTanaman
  * @package App\Models
- * @version April 13, 2025, 3:20 pm UTC
+ * @version April 18, 2025, 10:27 am UTC
  *
+ * @property \Illuminate\Database\Eloquent\Collection $lahans
  * @property string $nama
  */
 class JenisTanaman extends Model
@@ -55,5 +56,11 @@ class JenisTanaman extends Model
         'updated_at' => 'nullable'
     ];
 
-    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function lahans()
+    {
+        return $this->hasMany(\App\Models\Lahan::class, 'jenis_tanaman_id');
+    }
 }

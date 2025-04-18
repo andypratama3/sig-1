@@ -16,8 +16,8 @@ class CreatePetani extends Migration
         Schema::create('petani', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->longText('alamat');
             $table->string('kontak');
+            $table->longText('alamat');
             $table->softDeletes();
             $table->timestamps();
         });

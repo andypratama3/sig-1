@@ -2,15 +2,18 @@
     <table class="table" id="lahans-table">
         <thead>
         <tr>
-            <th>Desa</th>
+        <th>Provinsi</th>
+        <th>Kabupaten</th>
+        <th>Kecamatan</th>
+        <th>Desa</th>
         <th>Tanaman</th>
         <th>Tanggal Penanaman</th>
         <th>Tanggal Panen</th>
         <th>Latitude</th>
         <th>Longitude</th>
         <th>Luas Lahan</th>
-        <th>Petani Id</th>
-        <th>Jenis Tanaman Id</th>
+        <th>Petani</th>
+        <th>Jenis Tanaman</th>
         <th>Status</th>
             <th colspan="3">Action</th>
         </tr>
@@ -18,15 +21,18 @@
         <tbody>
         @foreach($lahans as $lahan)
             <tr>
-                <td>{{ $lahan->desa }}</td>
+                <td>{{ $lahan->provinsi_id }}</td>
+            <td>{{ $lahan->kabupaten_id }}</td>
+            <td>{{ $lahan->kecamatan_id }}</td>
+            <td>{{ $lahan->desa_id }}</td>
             <td>{{ $lahan->tanaman }}</td>
             <td>{{ $lahan->tanggal_penanaman }}</td>
             <td>{{ $lahan->tanggal_panen }}</td>
             <td>{{ $lahan->latitude }}</td>
             <td>{{ $lahan->longitude }}</td>
             <td>{{ $lahan->luas_lahan }}</td>
-            <td>{{ $lahan->petani_id }}</td>
-            <td>{{ $lahan->jenis_tanaman_id }}</td>
+            <td>{{ $lahan->petani->nama }}</td>
+            <td>{{ $lahan->jenisTanaman->nama }}</td>
             <td>{{ $lahan->status }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['lahans.destroy', $lahan->id], 'method' => 'delete']) !!}

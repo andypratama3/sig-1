@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class PetaniRepository
  * @package App\Repositories
- * @version April 13, 2025, 9:34 pm UTC
+ * @version April 18, 2025, 10:28 am UTC
 */
 
 class PetaniRepository extends BaseRepository
@@ -18,8 +18,8 @@ class PetaniRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'nama',
-        'alamat',
-        'kontak'
+        'kontak',
+        'alamat'
     ];
 
     /**

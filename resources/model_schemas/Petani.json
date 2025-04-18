@@ -24,10 +24,10 @@
         "inView": true
     },
     {
-        "name": "alamat",
-        "dbType": "text",
-        "htmlType": "textarea",
-        "validations": "required|string|string",
+        "name": "kontak",
+        "dbType": "string,255",
+        "htmlType": "text",
+        "validations": "required|string|max:255|string|max:255",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -36,10 +36,10 @@
         "inView": true
     },
     {
-        "name": "kontak",
-        "dbType": "string,255",
-        "htmlType": "text",
-        "validations": "required|string|max:255|string|max:255",
+        "name": "alamat",
+        "dbType": "text",
+        "htmlType": "textarea",
+        "validations": "required|string|string",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -82,5 +82,9 @@
         "inForm": false,
         "inIndex": false,
         "inView": false
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,Lahan,petani_id"
     }
 ]

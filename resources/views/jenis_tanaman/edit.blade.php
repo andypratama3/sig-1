@@ -17,17 +17,17 @@
 
         <div class="card">
 
-            {!! Form::model($jenisTanaman, ['route' => ['jenisTanamen.update', $jenisTanaman->id], 'method' => 'patch']) !!}
+            {!! Form::model($jenisTanaman, ['route' => ['jenis-tanaman.update', $jenisTanaman->id], 'method' => 'patch']) !!}
 
             <div class="card-body">
                 <div class="row">
-                    @include('jenis_tanamen.fields')
+                    @include('jenis_tanaman.fields')
                 </div>
             </div>
 
             <div class="card-footer">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('jenisTanamen.index') }}" class="btn btn-default">Cancel</a>
+                <a href="{{ route('jenis-tanaman.index') }}" class="btn btn-default">Cancel</a>
             </div>
 
             {!! Form::close() !!}

@@ -9,17 +9,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class Lahan
  * @package App\Models
- * @version April 13, 2025, 9:56 pm UTC
+ * @version April 18, 2025, 10:28 am UTC
  *
  * @property \App\Models\JenisTanaman $jenisTanaman
  * @property \App\Models\Petani $petani
- * @property string $desa
+ * @property string $provinsi_id
+ * @property string $kabupaten_id
+ * @property string $kecamatan_id
+ * @property string $desa_id
  * @property string $tanaman
  * @property string $tanggal_penanaman
  * @property string $tanggal_panen
- * @property number $latitude
- * @property number $longitude
- * @property number $luas_lahan
+//  * @property number $latitude
+//  * @property number $longitude
+//  * @property number $luas_lahan
  * @property integer $petani_id
  * @property integer $jenis_tanaman_id
  * @property string $status
@@ -31,7 +34,7 @@ class Lahan extends Model
     use HasFactory;
 
     public $table = 'lahan';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -41,7 +44,10 @@ class Lahan extends Model
 
 
     public $fillable = [
-        'desa',
+        'provinsi_id',
+        'kabupaten_id',
+        'kecamatan_id',
+        'desa_id',
         'tanaman',
         'tanggal_penanaman',
         'tanggal_panen',
@@ -60,12 +66,15 @@ class Lahan extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'desa' => 'string',
+        'provinsi_id' => 'string',
+        'kabupaten_id' => 'string',
+        'kecamatan_id' => 'string',
+        'desa_id' => 'string',
         'tanaman' => 'string',
         'tanggal_penanaman' => 'date',
         'tanggal_panen' => 'date',
-        'latitude' => 'decimal:6',
-        'longitude' => 'decimal:6',
+        // 'latitude' => 'decimal:6',
+        // 'longitude' => 'decimal:6',
         'luas_lahan' => 'float',
         'petani_id' => 'integer',
         'jenis_tanaman_id' => 'integer',
@@ -78,19 +87,22 @@ class Lahan extends Model
      * @var array
      */
     public static $rules = [
-        'desa' => 'required|string|max:255',
+        'provinsi_id' => 'nullable|string|max:255',
+        'kabupaten_id' => 'nullable|string|max:255',
+        'kecamatan_id' => 'nullable|string|max:255',
+        'desa_id' => 'nullable|string|max:255',
         'tanaman' => 'required|string|max:255',
         'tanggal_penanaman' => 'nullable',
         'tanggal_panen' => 'nullable',
-        'latitude' => 'required|numeric',
-        'longitude' => 'required|numeric',
+        // 'latitude' => 'required|numeric',
+        // 'longitude' => 'required|numeric',
         'luas_lahan' => 'required|numeric',
         'petani_id' => 'required',
         'jenis_tanaman_id' => 'required',
         'status' => 'nullable|string',
+        'deleted_at' => 'nullable',
         'created_at' => 'nullable',
-        'updated_at' => 'nullable',
-        'deleted_at' => 'nullable'
+        'updated_at' => 'nullable'
     ];
 
     /**

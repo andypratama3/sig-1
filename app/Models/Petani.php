@@ -9,11 +9,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class Petani
  * @package App\Models
- * @version April 13, 2025, 9:34 pm UTC
+ * @version April 18, 2025, 10:28 am UTC
  *
+ * @property \Illuminate\Database\Eloquent\Collection $lahans
  * @property string $nama
- * @property string $alamat
  * @property string $kontak
+ * @property string $alamat
  */
 class Petani extends Model
 {
@@ -33,8 +34,8 @@ class Petani extends Model
 
     public $fillable = [
         'nama',
-        'alamat',
-        'kontak'
+        'kontak',
+        'alamat'
     ];
 
     /**
@@ -45,8 +46,8 @@ class Petani extends Model
     protected $casts = [
         'id' => 'integer',
         'nama' => 'string',
-        'alamat' => 'string',
-        'kontak' => 'string'
+        'kontak' => 'string',
+        'alamat' => 'string'
     ];
 
     /**
@@ -56,12 +57,18 @@ class Petani extends Model
      */
     public static $rules = [
         'nama' => 'required|string|max:255',
-        'alamat' => 'required|string',
         'kontak' => 'required|string|max:255',
+        'alamat' => 'required|string',
         'deleted_at' => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
 
-    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function lahans()
+    {
+        return $this->hasMany(\App\Models\Lahan::class, 'petani_id');
+    }
 }

@@ -15,18 +15,21 @@ class CreateLahanTable extends Migration
     {
         Schema::create('lahan', function (Blueprint $table) {
             $table->id();
-            $table->string('desa');
+            $table->string('provinsi_id')->nullable();
+            $table->string('kabupaten_id')->nullable();
+            $table->string('kecamatan_id')->nullable();
+            $table->string('desa_id')->nullable();
             $table->string('tanaman');
             $table->date('tanggal_penanaman')->nullable();
             $table->date('tanggal_panen')->nullable();
             $table->decimal('latitude', 10, 6);
             $table->decimal('longitude', 10, 6);
             $table->float('luas_lahan', 8, 2);
-            $table->foreignId('petani_id')->constrained('petani')->onDelete('cascade');
-            $table->foreignId('jenis_tanaman_id')->constrained('jenis_tanaman')->onDelete('cascade');
-            $table->enum('status', ['baru_penanaman','siap_panen','panen'])->default('baru_penanaman')->nullable();
-            $table->timestamps();
+            $table->foreignId('petani_id')->references('id')->on('petani')->onDelete('cascade');
+            $table->foreignId('jenis_tanaman_id')->references('id')->on('jenis_tanaman')->onDelete('cascade');
+            $table->enum('status', ['baru_penanaman','siap_panen','panen'])->default('baru_penanaman');
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 

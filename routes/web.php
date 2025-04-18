@@ -23,7 +23,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/maps', [App\Http\Controllers\MapsController::class, 'index'])->name('maps.index');
 
 
-Route::resource('jenisTanamen', App\Http\Controllers\JenisTanamanController::class);
+Route::resource('jenis-tanaman', App\Http\Controllers\JenisTanamanController::class);
 
 
 Route::resource('petanis', App\Http\Controllers\PetaniController::class);

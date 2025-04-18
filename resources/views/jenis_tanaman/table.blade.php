@@ -11,13 +11,13 @@
             <tr>
                 <td>{{ $jenisTanaman->nama }}</td>
                 <td width="120">
-                    {!! Form::open(['route' => ['jenisTanamen.destroy', $jenisTanaman->id], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['jenis-tanaman.destroy', $jenisTanaman->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{{ route('jenisTanamen.show', [$jenisTanaman->id]) }}"
+                        <a href="{{ route('jenis-tanaman.show', [$jenisTanaman->id]) }}"
                            class='btn btn-default btn-xs'>
                             <i class="far fa-eye"></i>
                         </a>
-                        <a href="{{ route('jenisTanamen.edit', [$jenisTanaman->id]) }}"
+                        <a href="{{ route('jenis-tanaman.edit', [$jenisTanaman->id]) }}"
                            class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>
                         </a>
